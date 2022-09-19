@@ -53,9 +53,24 @@ private String toString(Node<E> t, String indent) {
 
 ## Phase 0: Requirements
 
+flip the children
+
+![img.png](img.png)
+
 ## Phase 1: System Analysis
 
 ## Phase 2: Design
+
+```java
+public void flip(node<E> t){
+        if (t == null) return
+        flip the children of t
+        flip(t.left)
+        flip(t.right)
+        }
+
+
+```
 
 
 # Problem 3

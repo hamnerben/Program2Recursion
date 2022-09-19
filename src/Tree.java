@@ -96,7 +96,6 @@ public class Tree<E extends Comparable<? super E>> {
         sb.append(toString(t.left, indent + " "));
         return sb.toString();
 
-
     }
     /**
      * Return a string displaying the tree contents as a single line
@@ -132,7 +131,18 @@ public class Tree<E extends Comparable<? super E>> {
      * reverse left and right children recursively
      */
     public void flip() {
-        //flip(root);
+        flip(root);
+    }
+
+    private void flip(BinaryNode<E> t){
+        if (t == null) return;
+        // flip the children
+        BinaryNode<E> temp = t.left;
+        t.left = t.right;
+        t.right = temp;
+        // call flip on the children
+        flip(t.left);
+        flip(t.right);
     }
 
     /**

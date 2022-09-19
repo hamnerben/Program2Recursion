@@ -20,14 +20,14 @@ public class TreeTester {
         Tree<Integer> treeTwo = new Tree<Integer>(list2, "TreeTwo:", false);
         System.out.println(treeTwo.toString());
 
-//        //Problem 2
-//        treeTwo.flip();
-//        treeTwo.changeName("Tree Two Now flipped");
-//        System.out.println( treeTwo.toString());
-//        treeTwo.flip();
-//        treeTwo.changeName("TreeTwo");
-//        System.out.println(treeTwo.toString());
-//
+        //Problem 2
+        treeTwo.flip();
+        treeTwo.changeName("Tree Two Now flipped");
+        System.out.println( treeTwo.toString());
+        treeTwo.flip();
+        treeTwo.changeName("TreeTwo");
+        System.out.println(treeTwo.toString());
+
 //        final int SIZE = 10;
 //        Integer[] list3 = new Integer[SIZE];
 //        for (int i = 0; i < SIZE ; i++) {
