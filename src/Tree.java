@@ -85,12 +85,15 @@ public class Tree<E extends Comparable<? super E>> {
         if (root == null)
             return (treeName + " Empty tree\n");
         else
-            return treeName + "\n" + toString2(root);
-        //return treeName+"\n" + toString(root,"");  // this will be the future call
+            return treeName+"\n" + toString(root,"");
     }
 
     private String toString(BinaryNode<E> t, String indent) {
+        if (t == null) return "";
         StringBuilder sb = new StringBuilder();
+        sb.append(toString(t.right, indent + " "));
+        sb.append(indent + t.element.toString() + "\n");
+        sb.append(toString(t.left, indent + " "));
         return sb.toString();
 
 
