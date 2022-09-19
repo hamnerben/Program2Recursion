@@ -1,7 +1,6 @@
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
-
 class UnderflowException extends RuntimeException {
     /**
      * Construct this exception object.
