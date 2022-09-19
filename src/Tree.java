@@ -16,6 +16,10 @@ public class Tree<E extends Comparable<? super E>> {
     private BinaryNode<E> root;  // Root of tree
     private String treeName;     // Name of tree
 
+    public static void main(String[] args){
+
+    }
+
     /**
      * Create an empty tree
      * @param label Name of tree
@@ -82,7 +86,7 @@ public class Tree<E extends Comparable<? super E>> {
             return (treeName + " Empty tree\n");
         else
             return treeName + "\n" + toString2(root);
-        //return treeName+"\n" + toString(root,"");
+        //return treeName+"\n" + toString(root,"");  // this will be the future call
     }
 
     private String toString(BinaryNode<E> t, String indent) {
