@@ -140,12 +140,14 @@ public class Tree<E extends Comparable<? super E>> {
 
 
     public E deepestNode() {
-        return deepestNode(new NodeDepth(root, 0)).node.element;
+        return deepestNode(root, 0).node.element;
     }
 
-    private NodeDepth deepestNode(NodeDepth nd){
-        if (nd.node == null) return nd;  // nd is class object that has a depth val and the node
-        deepestNode(new NodeDepth(nd))
+    private NodeDepth deepestNode(BinaryNode<E> node, int depth){
+        if (node == null) return new NodeDepth(node, depth);  // nd is class object that has a depth val and the node
+
+
+        
     }
 
     /**

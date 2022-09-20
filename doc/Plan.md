@@ -80,7 +80,18 @@ public void flip(node<E> t){
 ## Phase 1: System Analysis
 
 ## Phase 2: Design
+```java
 
+private NodeDepth deepestNode(BinaryNode<E> node, int depth){
+        if (node == null) return new NodeDepth(node, depth); 
+        left biggest = deepestNode(node.left)
+        right biggest = deepsetNOde(node.right)
+        which one is bigger?
+        return the bigger
+        
+        return new NodeDepth(deepestNode, deepestDepth)
+    }
+```
 
 # Problem 4
 
