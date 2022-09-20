@@ -1,6 +1,7 @@
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
+
 class UnderflowException extends RuntimeException {
     /**
      * Construct this exception object.
@@ -12,12 +13,27 @@ class UnderflowException extends RuntimeException {
     }
 }
 
+
+
 public class Tree<E extends Comparable<? super E>> {
+
+    class NodeDepth {
+        BinaryNode<E> node;
+        int depth;
+
+        public NodeDepth(BinaryNode<E> node, int depth){
+            this.node = node;
+            this.depth = depth;
+        }
+    }
+
     private BinaryNode<E> root;  // Root of tree
     private String treeName;     // Name of tree
 
     public static void main(String[] args){
-
+        Integer ya = 1;
+        Integer yo = 1;
+        System.out.print(ya.compareTo(yo));
     }
 
     /**
@@ -124,7 +140,12 @@ public class Tree<E extends Comparable<? super E>> {
 
 
     public E deepestNode() {
-        return null;
+        return deepestNode(new NodeDepth(root, 0)).node.element;
+    }
+
+    private NodeDepth deepestNode(NodeDepth nd){
+        if (nd.node == null) return nd;  // nd is class object that has a depth val and the node
+        deepestNode(new NodeDepth(nd))
     }
 
     /**

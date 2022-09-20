@@ -28,18 +28,18 @@ public class TreeTester {
         treeTwo.changeName("TreeTwo");
         System.out.println(treeTwo.toString());
 
-//        final int SIZE = 10;
-//        Integer[] list3 = new Integer[SIZE];
-//        for (int i = 0; i < SIZE ; i++) {
-//            int t = generator.nextInt(200);
-//            list3[i] = t;
-//        }
-//        Tree<Integer> treeThree = new Tree<Integer>(list3, "TreeThree:", true);
-//        System.out.println(treeThree.toString());
-//
-//        //Problem 3
-//        System.out.println("Deepest Node of treeOne " + treeOne.deepestNode());
-//        System.out.println("Deepest Node of treeThree " + treeThree.deepestNode());
+        final int SIZE = 10;
+        Integer[] list3 = new Integer[SIZE];
+        for (int i = 0; i < SIZE ; i++) {
+            int t = generator.nextInt(200);
+            list3[i] = t;
+        }
+        Tree<Integer> treeThree = new Tree<Integer>(list3, "TreeThree:", true);
+        System.out.println(treeThree.toString());
+
+        //Problem 3
+        System.out.println("Deepest Node of treeOne " + treeOne.deepestNode());
+        System.out.println("Deepest Node of treeThree " + treeThree.deepestNode());
 //
 //
 //        //Problem 4
