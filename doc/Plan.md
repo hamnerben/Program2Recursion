@@ -127,8 +127,25 @@ public int nodesInLevel(node, target, depth){
 ## Phase 1: System Analysis
 
 ## Phase 2: Design
+I will pass in a all the node elements and print all of them once I get to each leaf
+
+```java
+    private void printAllPaths(BinaryNode<E> node, String toPrint){
+        toPrint.append(node.element)
+        if(node.left == null && node.right == null){
+            System.out.print(toPrint)
+        }
+        if(node.left != null){
+        printAllPaths(node.left, toPrint)
+        }
+        if(node.right != null){
+        printAllPaths(node.right, toPrint)
+        }
+        }
 
 
+
+```
 # Problem 6
 
 ## Phase 0: Requirements

@@ -49,11 +49,11 @@ public class TreeTester {
         mylevel=4;
         System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
 
-//        //Problem 5
-//        System.out.println("All paths from treeThree");
-//        treeThree.printAllPaths();
-//
-//
+        //Problem 5
+        System.out.println("All paths from treeThree");
+        treeThree.printAllPaths();
+
+
 //        Integer[] list4= {21, 8, 25, 6, 7, 19, 10, 40, 43, 52, 64, 80};
 //        Tree<Integer> treeFour = new Tree<Integer>(list4, "treeFour", false);
 //        //Problem 6

@@ -210,9 +210,21 @@ public class Tree<E extends Comparable<? super E>> {
      * Print all paths from root to leaves
      */
     public void printAllPaths() {
-
+        printAllPaths(root,new StringBuilder(""));
     }
 
+    private void printAllPaths(BinaryNode<E> node, StringBuilder toPrint){
+        toPrint.append(node.element + " ");
+        if(node.left == null && node.right == null){  // leaf node found
+            System.out.println(toPrint);
+        }
+        if(node.left != null){
+            printAllPaths(node.left, new StringBuilder(toPrint));  // left subtree
+        }
+        if(node.right != null){
+            printAllPaths(node.right, new StringBuilder(toPrint));  // right subtree
+        }
+    }
 
     /**
      * Counts all non-null binary search trees embedded in tree
