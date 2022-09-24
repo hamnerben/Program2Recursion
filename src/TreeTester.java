@@ -42,12 +42,12 @@ public class TreeTester {
         System.out.println("Deepest Node of treeThree " + treeThree.deepestNode());
 
 
-//        //Problem 4
-//        int mylevel=3;
-//        System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
-//        mylevel=4;
-//        System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
-//
+        //Problem 4
+        int mylevel=3;
+        System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
+        mylevel=4;
+        System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
+
 //        //Problem 5
 //        System.out.println("All paths from treeThree");
 //        treeThree.printAllPaths();

@@ -109,7 +109,14 @@ private NodeInfo deepestNode(BinaryNode<E> node, int depth){
 ## Phase 1: System Analysis
 
 ## Phase 2: Design
-
+```java
+public int nodesInLevel(node, target, depth){
+    if(node == null) return 0;
+    if(depth > target) return 0;
+    if(depth == target) return 1;
+    int left = nodesInlevel(node.left, target, depth + 1)
+        }
+```
 
 # Problem 5
 
