@@ -154,6 +154,22 @@ I will pass in a all the node elements and print all of them once I get to each 
 
 ## Phase 2: Design
 
+check the left and right children to see if they add up to `k` 
+if they don't remove the child
+
+```java
+public int prune(BinaryNode<E> node, Integer TARGETSUM, int pathSum){
+    if(node == null) return pathSum
+    pathsum = pathsum + node.element
+    if(prune(node.left, TARGETSUM, pathsum) < TARGET_SUM){  // left child is too small
+        node.left = null;
+        }
+    if(prune(node.right, TARGETSUM, pathsum) < TARGETSUM) { // right child is too small
+        node.right = null;
+        }
+    
+        }
+```
 
 # Problem 7
 

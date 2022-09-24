@@ -2,6 +2,8 @@
 // Throws UnderflowException as appropriate
 
 
+import javax.swing.*;
+
 class UnderflowException extends RuntimeException {
     /**
      * Construct this exception object.
@@ -300,6 +302,20 @@ public class Tree<E extends Comparable<? super E>> {
      * @param sum: minimum path sum allowed in final tree
      */
     public void pruneK(Integer sum) {
+        prune((BinaryNode<Integer>) root, sum, 0);
+    }
+
+    private int prune(BinaryNode<Integer> node, Integer TARGET_SUM, int pathSum){
+        if(node == null) return pathSum;
+        int left = prune(node.left, TARGET_SUM, pathSum + node.element);
+        int right = prune(node.right, TARGET_SUM, pathSum + node.element);
+        if(left < TARGET_SUM){
+            node.left = null;  // left child is too small
+        }
+        if(right < TARGET_SUM){
+            node.right = null;  // left child is too small
+        }
+        return Math.max(left, right);
     }
 
     /**
