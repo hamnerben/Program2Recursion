@@ -115,6 +115,8 @@ public int nodesInLevel(node, target, depth){
     if(depth > target) return 0;
     if(depth == target) return 1;
     int left = nodesInlevel(node.left, target, depth + 1)
+    int right = nodesInlevel(node.right, target, depth + 1)
+    return left + right;
         }
 ```
 
