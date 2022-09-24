@@ -25,6 +25,9 @@ public class Tree<E extends Comparable<? super E>> {
             this.node = node;
             this.depth = depth;
         }
+        public NodeInfo(BinaryNode<E> node){
+            this.node = node;
+        }
     }
 
     private BinaryNode<E> root;  // Root of tree
@@ -35,6 +38,7 @@ public class Tree<E extends Comparable<? super E>> {
         Integer yo = 1;
         System.out.print(ya.compareTo(yo));
     }
+
 
     /**
      * Create an empty tree

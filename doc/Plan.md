@@ -82,14 +82,23 @@ public void flip(node<E> t){
 ## Phase 2: Design
 ```java
 
-private NodeDepth deepestNode(BinaryNode<E> node, int depth){
-        if (node == null) return new NodeDepth(node, depth); 
-        left biggest = deepestNode(node.left)
-        right biggest = deepsetNOde(node.right)
-        which one is bigger?
-        return the bigger
-        
-        return new NodeDepth(deepestNode, deepestDepth)
+private NodeInfo deepestNode(BinaryNode<E> node, int depth){
+        NodeInfo leftBiggest;
+        NodeInfo rightBigeest;
+        if (node.left){
+            leftBiggest =  = deepestNode(node.left, depth+1)
+        }
+        if (node.right){
+            rightBiggeset =  = deepestNode(node.left, depth+1)
+        }
+        if (leftBiggest && rightBiggest){
+            return biggest of the two
+        }
+        else if(leftBiggest || rightBiggest){
+            return the one that continues
+        }
+        else
+            return the root node, // no children
     }
 ```
 
