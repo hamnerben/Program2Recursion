@@ -148,10 +148,26 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     private NodeInfo deepestNode(BinaryNode<E> node, int depth){
-        if (node == null) return new NodeInfo(node, depth);  // nd is class object that has a depth val and the node
+        NodeInfo leftBiggest = null;
+        NodeInfo rightBiggest = null;
+        if (node.left != null){
+            leftBiggest = deepestNode(node.left, depth + 1);
+        }
+        if (node.right != null){
+            rightBiggest = deepestNode(node.right, depth + 1);
+        }
+        if (leftBiggest != null && rightBiggest != null){  // if both children exist, return the greater
+            if (leftBiggest.depth > rightBiggest.depth){
+                return leftBiggest;
+            }
+            else return rightBiggest;    // right wins ties
+        }
+        else if(leftBiggest != null || rightBiggest != null){ // if one child exists
+            if (leftBiggest != null) return leftBiggest;
+            else return rightBiggest;
+        }
+        else return new NodeInfo(node, depth);  // no children nodes exist
 
-
-        
     }
 
     /**
