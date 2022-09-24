@@ -44,6 +44,7 @@ public class TreeTester {
 
         //Problem 4
         int mylevel=3;
+        System.out.println("TreeThree");
         System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
         mylevel=4;
         System.out.println("Number nodes at level " + mylevel + " is " + treeThree.nodesInLevel(mylevel));
