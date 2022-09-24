@@ -17,11 +17,11 @@ class UnderflowException extends RuntimeException {
 
 public class Tree<E extends Comparable<? super E>> {
 
-    class NodeDepth {
+    class NodeInfo {
         BinaryNode<E> node;
         int depth;
 
-        public NodeDepth(BinaryNode<E> node, int depth){
+        public NodeInfo(BinaryNode<E> node, int depth){
             this.node = node;
             this.depth = depth;
         }
@@ -143,8 +143,8 @@ public class Tree<E extends Comparable<? super E>> {
         return deepestNode(root, 0).node.element;
     }
 
-    private NodeDepth deepestNode(BinaryNode<E> node, int depth){
-        if (node == null) return new NodeDepth(node, depth);  // nd is class object that has a depth val and the node
+    private NodeInfo deepestNode(BinaryNode<E> node, int depth){
+        if (node == null) return new NodeInfo(node, depth);  // nd is class object that has a depth val and the node
 
 
         
