@@ -175,10 +175,45 @@ public int prune(BinaryNode<E> node, Integer TARGETSUM, int pathSum){
 
 ## Phase 0: Requirements
 
+What needs to happen?
+* One target node must be found
+* `lca()` must run on each ancestor node of `a` until `b` is found
+* 
+
+
 ## Phase 1: System Analysis
+
+info need to return
+* has the ancestor been found? / the ancestor node
+
+info need to pass in
+* the node, 2 target nodes
 
 ## Phase 2: Design
 
+**lca()**
+* with each parent of `a` accessed, `lca()` will run on the opposite
+sub-tree from which `a` came, (becuase we would have already checked)
+* it needs to navigate down from the root so it can return back the way it came
+* 
+
+```java
+    private BinaryNode<E> lca(BinaryNode<E> node, E a, E b){
+        BinaryNode<E> ancestor;
+        if(node != a){  // we are still looking for `a`
+            if(node.compareTo(a)< 0){
+                ancestor=lca(node.left)  // search left
+            }
+            else
+                acestory=lca(right)   // search right
+        }  
+        if (contains(b at this node)) { // the "not a block" already executed
+            ancestor = node;
+        }
+        return ancestor
+        
+    }
+```
 
 # Problem 8
 

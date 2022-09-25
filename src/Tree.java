@@ -335,14 +335,20 @@ public class Tree<E extends Comparable<? super E>> {
      */
     public String lca(E a, E b) {
         BinaryNode<E> ancestor = null;
-//        if (a.compareTo(b) < 0) {
-//            ancestor = lca(root, a, b);
-//        } else {
-//            ancestor = lca(root, b, a);
-//        }
+        if (a.compareTo(b) < 0) {
+            ancestor = lca(root, a, b);
+        } else {
+            ancestor = lca(root, b, a);
+        }
         if (ancestor == null) return "none";
         else return ancestor.toString();
     }
+
+    private BinaryNode<E> lca(BinaryNode<E> node, E a, E b){
+        BinaryNode<E> ancestor;
+
+    }
+
 
     /**
      * Balance the tree
