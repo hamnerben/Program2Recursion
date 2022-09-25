@@ -345,9 +345,20 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     private BinaryNode<E> lca(BinaryNode<E> node, E a, E b){
-        BinaryNode<E> ancestor;
+        BinaryNode<E> ancestor = null;
+        if(node.element != a){  // still looking for `a`
+            if(a.compareTo(node.element) < 0){
+                ancestor = lca(node.left, a, b);
 
-    }
+            }
+            else
+                ancestor = lca(node.right, a, b);
+        }
+        if(contains(b, node) && ancestor == null) { // if the above lca() call found the ancestor
+            ancestor = node;                        // already, skip this portion
+        }
+        return ancestor;
+        }
 
 
     /**

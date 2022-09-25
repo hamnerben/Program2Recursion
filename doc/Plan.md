@@ -207,7 +207,7 @@ sub-tree from which `a` came, (becuase we would have already checked)
             else
                 acestory=lca(right)   // search right
         }  
-        if (contains(b at this node)) { // the "not a block" already executed
+        if (contains(b at this node)) { // the "not `a` block" already executed
             ancestor = node;
         }
         return ancestor
