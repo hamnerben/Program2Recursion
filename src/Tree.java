@@ -367,10 +367,17 @@ public class Tree<E extends Comparable<? super E>> {
      * Balance the tree
      */
     public void balanceTree() {
-        ArrayList<E> sorted = balanceTree(root, new ArrayList<E>());
+        ArrayList<E> sorted = balanceTree(root, new ArrayList<E>());  // does a binary traversal to sort the elements
         System.out.println(sorted);
     }
 
+
+    /**
+     * Creates a sorted list of keys by inorder traversal
+     * @param node current node being traversed
+     * @param sorted ArrayList<E> containing keys
+     * @return ArrayList<E> of keys ordered
+     */
     private ArrayList<E> balanceTree(BinaryNode<E> node, ArrayList<E> sorted) {
         if(node == null) return sorted;
         sorted = balanceTree(node.left, sorted);

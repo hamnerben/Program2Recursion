@@ -228,6 +228,8 @@ sub-tree from which `a` came, (becuase we would have already checked)
 * make a tree starting with the middle of the list 
 * make a call on the two sides of the middle. 
   * we will be cutting the problem in half each time
+
+**in-order traversal code**
 ```java
 private BinaryNode<E> balanceTree(BinaryNode<E> node, arraylist<E> sorted){
         balanceTree(node.left, sorted)
@@ -236,9 +238,14 @@ private BinaryNode<E> balanceTree(BinaryNode<E> node, arraylist<E> sorted){
         return sorted
         
     }
+```
+**construct balanced tree**
+```java
+
 
 
 ```
+
 
 # Problem 9
 
