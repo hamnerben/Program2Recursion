@@ -223,6 +223,22 @@ sub-tree from which `a` came, (becuase we would have already checked)
 
 ## Phase 2: Design
 
+* We will in order traverse the tree and make a sorted list
+  * Do I store keys or nodes in the list?
+* make a tree starting with the middle of the list 
+* make a call on the two sides of the middle. 
+  * we will be cutting the problem in half each time
+```java
+private BinaryNode<E> balanceTree(BinaryNode<E> node, arraylist<E> sorted){
+        balanceTree(node.left, sorted)
+        balanceTree(node, sorted)
+        balanceTree(right)
+        return sorted
+        
+    }
+
+
+```
 
 # Problem 9
 

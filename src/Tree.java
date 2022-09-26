@@ -3,6 +3,8 @@
 
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;  // did I accidentally import this?
 
 class UnderflowException extends RuntimeException {
     /**
@@ -365,7 +367,16 @@ public class Tree<E extends Comparable<? super E>> {
      * Balance the tree
      */
     public void balanceTree() {
-        //root = balanceTree(root);
+        ArrayList<E> sorted = balanceTree(root, new ArrayList<E>());
+        System.out.println(sorted);
+    }
+
+    private ArrayList<E> balanceTree(BinaryNode<E> node, ArrayList<E> sorted) {
+        if(node == null) return sorted;
+        sorted = balanceTree(node.left, sorted);
+        sorted.add(node.element);
+        sorted = balanceTree(node.right, sorted);
+        return sorted;
     }
 
     /**
