@@ -239,9 +239,22 @@ private BinaryNode<E> balanceTree(BinaryNode<E> node, arraylist<E> sorted){
         
     }
 ```
+
+**What needs to happen**
+* node passes in
+* the middle val in `sortedList` is inserted to the tree
+
+
 **construct balanced tree**
 ```java
-
+private BinaryNode balanceTree(ArrayList sorted, int start, int end){
+    if start > end 
+        then its done, insert the node then return
+    find middle
+    insert the middle node to the tree
+    balanceTree(left half)
+    balanceTree(right half)
+    return node
 
 
 ```

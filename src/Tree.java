@@ -38,9 +38,12 @@ public class Tree<E extends Comparable<? super E>> {
     private String treeName;     // Name of tree
 
     public static void main(String[] args){
-        Integer ya = 1;
-        Integer yo = 1;
-        System.out.print(ya.compareTo(yo));
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(4);
+        list.add(5);
+        System.out.println(list);
+        System.out.println(list.size());
     }
 
 
@@ -368,7 +371,9 @@ public class Tree<E extends Comparable<? super E>> {
      */
     public void balanceTree() {
         ArrayList<E> sorted = balanceTree(root, new ArrayList<E>());  // does a binary traversal to sort the elements
+        root = null;
         System.out.println(sorted);
+        balanceTree(sorted, 0, sorted.size() - 1);
     }
 
 
@@ -384,6 +389,18 @@ public class Tree<E extends Comparable<? super E>> {
         sorted.add(node.element);
         sorted = balanceTree(node.right, sorted);
         return sorted;
+    }
+
+    private void balanceTree(ArrayList<E> sorted, int start, int end){
+        if(start >= end){
+            bstInsert(sorted.get(start));
+            return;
+        }
+        int middle = (start + end) / 2;
+        bstInsert(sorted.get(middle));
+        balanceTree(sorted, start, middle - 1);
+        balanceTree(sorted, middle + 1, end);
+        return;
     }
 
     /**
