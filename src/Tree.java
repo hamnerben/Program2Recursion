@@ -410,6 +410,14 @@ public class Tree<E extends Comparable<? super E>> {
      * @param b highest value
      */
     public void keepRange(E a, E b) {
+        root = keepRange(root, a, b);
+    }
+
+    private BinaryNode<E> keepRange(BinaryNode<E> node, E a, E b){
+        if(node.element.compareTo(a) > 0){
+            
+        }
+        return node;
     }
 
     // Basic node stored in unbalanced binary  trees

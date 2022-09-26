@@ -264,9 +264,27 @@ private BinaryNode balanceTree(ArrayList sorted, int start, int end){
 
 ## Phase 0: Requirements
 
+a range is passed in the method.  remove all nodes that are not
+in that range. 
+
 ## Phase 1: System Analysis
+**brainstorm**
+I can navigate to the part of the tree that I care about because
+it is a BST. 
+
+
 
 ## Phase 2: Design
+```java
+if node in range
+    node.left = keepRange(node.left)
+    node.right = keepRange(node.right)
+    return node 
+else if node is below low
+    return keepRange(node.right)
+else if node is above high
+    return keepRange(node.left)
+```
 
 
 # Problem 10
