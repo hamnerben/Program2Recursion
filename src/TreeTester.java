@@ -80,19 +80,19 @@ public class TreeTester {
         treeFive.changeName("treeFive after balancing");
         System.out.println(treeFive.toString());
 
-//        //Problem 9
-//        System.out.println(treeOne.toString());
-//        treeOne.keepRange(14, 50);
-//        treeOne.changeName("treeOne after keeping only nodes between 14 and 50");
-//        System.out.println(treeOne.toString());
-//
-//
-//        treeFive.changeName("treeFive");
-//        System.out.println(treeFive.toString());
-//        treeFive.keepRange(3, 69);
-//        treeFive.changeName("treeFive after keeping only nodes between 3  and 69");
-//        System.out.println(treeFive.toString());
-//
+        //Problem 9
+        System.out.println(treeOne.toString());
+        treeOne.keepRange(14, 50);
+        treeOne.changeName("treeOne after keeping only nodes between 14 and 50");
+        System.out.println(treeOne.toString());
+
+
+        treeFive.changeName("treeFive");
+        System.out.println(treeFive.toString());
+        treeFive.keepRange(3, 69);
+        treeFive.changeName("treeFive after keeping only nodes between 3  and 69");
+        System.out.println(treeFive.toString());
+
 //        // Problem 10
 //        treeTwo = new Tree<Integer>(list2, "TreeTwo:", false);
 //        System.out.println(treeTwo.toString());

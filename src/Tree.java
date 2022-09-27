@@ -33,17 +33,21 @@ public class Tree<E extends Comparable<? super E>> {
             this.node = node;
         }
     }
+    class SubBSTInfo {
+        int trees;
+        boolean stillOrdered;
+
+
+    }
 
     private BinaryNode<E> root;  // Root of tree
     private String treeName;     // Name of tree
 
     public static void main(String[] args){
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(2);
-        list.add(4);
-        list.add(5);
-        System.out.println(list);
-        System.out.println(list.size());
+        Integer a = 10;
+        Integer b = 14;
+
+        System.out.println(b.compareTo(a));
     }
 
 
@@ -242,6 +246,8 @@ public class Tree<E extends Comparable<? super E>> {
         return -1;
     }
 
+
+
     /**
      * Insert into a bst tree; duplicates are allowed
      * @param x the item to insert.
@@ -414,8 +420,18 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     private BinaryNode<E> keepRange(BinaryNode<E> node, E a, E b){
-        if(node.element.compareTo(a) > 0){
-            
+        if(node == null) return null;
+        else if(node.element.compareTo(b) <= 0 && node.element.compareTo(a) >= 0){
+            node.left = keepRange(node.left, a, b);
+            node.right = keepRange(node.right, a, b);
+            return node;
+        }
+
+        else if(node.element.compareTo(a) < 0){
+            return keepRange(node.right, a, b);
+        }
+        else if(node.element.compareTo(b) > 0){
+            return keepRange(node.left, a, b);
         }
         return node;
     }

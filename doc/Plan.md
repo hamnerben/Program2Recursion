@@ -290,7 +290,28 @@ else if node is above high
 # Problem 10
 
 ## Phase 0: Requirements
+we need to count all the bst in the tree.
+Every leaf node counts as a bst.
+at every node we must travel down to see if the children
+placed correctly
 
 ## Phase 1: System Analysis
 
 ## Phase 2: Design
+```java
+private SubBSTInfo countBST(BinaryNode node){
+    if(node == null)
+        return empty obj
+    countBST.trees = countBST(right)
+    countBST.trees = countBST.trees + countBST(left)
+    if(both children are correct && stillOrdred)
+        countBST.trees++
+    else
+        stillOrdered = false
+    return subBSTobj
+        
+        
+    
+        
+        }
+```
