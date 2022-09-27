@@ -135,11 +135,11 @@ public class Tree<E extends Comparable<? super E>> {
             return treeName+"\n" + toString(root,"");
     }
 
-    /**
-     * 
-     * @param t
-     * @param indent
-     * @return
+    /** internal method to go through each node and store its value to print it out
+     * this runs at O(n)
+     * @param t the current node being inspected
+     * @param indent how many indentations need to happen
+     * @return the string representation of the tree
      */
 
     private String toString(BinaryNode<E> t, String indent) {
@@ -176,10 +176,22 @@ public class Tree<E extends Comparable<? super E>> {
         return sb.toString();
     }
 
+    /** Finds and returns the deepest node
+     *
+     * @return the deepest node
+     */
 
     public E deepestNode() {
         return deepestNode(root, 0).node.element;
     }
+
+    /**
+     * Internal method to find the deepest node
+     * runs at O(n)
+     * @param node  the current node being inspected
+     * @param depth the depth of the current node
+     * @return NodeInfo object containing a node and the depth of the node
+     */
 
     private NodeInfo deepestNode(BinaryNode<E> node, int depth){
         NodeInfo leftBiggest = null;
@@ -211,6 +223,11 @@ public class Tree<E extends Comparable<? super E>> {
         flip(root);
     }
 
+    /**
+     * internal method to flip the left and right children recursively
+     * this runs at O(n)
+     * @param t the current node to flip the children
+     */
     private void flip(BinaryNode<E> t){
         if (t == null) return;
         // flip the children
@@ -231,6 +248,15 @@ public class Tree<E extends Comparable<? super E>> {
         return nodesInLevel(root, level, 0);
     }
 
+    /**
+     * internal method to count the number of nodes in specific level
+     * runs at O(n)
+     * @param node the current node being inspected
+     * @param target the level to count all the nodes
+     * @param depth the depth of the current node
+     * @return the number of nodes at the targetLevel
+     */
+
     private int nodesInLevel(BinaryNode<E> node, int target, int depth) {
         if(node == null) return 0;
         if(depth > target) return 0;
@@ -247,6 +273,12 @@ public class Tree<E extends Comparable<? super E>> {
         printAllPaths(root,new StringBuilder(""));
     }
 
+    /**
+     * internal method that helps print all paths from root to leaves
+     * runs at O(n)
+     * @param node
+     * @param toPrint
+     */
     private void printAllPaths(BinaryNode<E> node, StringBuilder toPrint){
         toPrint.append(node.element + " ");
         if(node.left == null && node.right == null){  // leaf node found
@@ -267,6 +299,12 @@ public class Tree<E extends Comparable<? super E>> {
     public Integer countBST() {
         return countBST(root).trees;
     }
+
+    /** internal method to count all non_null binary search trees
+     * runs at O(n^2)
+     * @param node the current node being accessed
+     * @return treeInfo object
+     */
 
     private SubBSTInfo countBST(BinaryNode<E> node){
         SubBSTInfo treeInfo = new SubBSTInfo(0, true);
@@ -360,7 +398,7 @@ public class Tree<E extends Comparable<? super E>> {
 
 
     /** Internal method to remove all paths from a tree that sum ot less than the given value
-     * this method runs at
+     * this method runs at O(nlog(n))
      * @param node: the current node being inspected
      * @param TARGET_SUM: the sum that the nodes must equate to
      * @param pathSum: the sum of from the path from the leaf to the current node
@@ -406,7 +444,7 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     /** Internal method to find the least common ancestor of two nodes
-     * this method runs at
+     * this method runs at O(log(n))
      * @param node: the node being inspected
      * @param a: the first node
      * @param b: the second node
@@ -443,6 +481,7 @@ public class Tree<E extends Comparable<? super E>> {
 
     /**
      * Creates a sorted list of keys by inorder traversal
+     * runs at O(n)
      * @param node current node being traversed
      * @param sorted ArrayList<E> containing keys
      * @return ArrayList<E> of keys ordered
@@ -458,7 +497,7 @@ public class Tree<E extends Comparable<? super E>> {
     /**
      * second internal method that creates a balanced bst
      * by inserting the nodes in a specific order
-     * this runs at
+     * this runs at O(n)
      * @param sorted ArrayList<E> containing keys
      * @param start the beginning index of the slice of sorted
      * @param end the end index of the slice of sorted
@@ -486,6 +525,14 @@ public class Tree<E extends Comparable<? super E>> {
         root = keepRange(root, a, b);
     }
 
+    /**
+     * internal method to keep only the nodes in the range
+     * runs at O(log(n))
+     * @param node the current node being inspected
+     * @param a the lower number the range to be kept
+     * @param b the higher number in the range to be kept
+     * @return the root of the new tree containing only nodes in the range
+     */
     private BinaryNode<E> keepRange(BinaryNode<E> node, E a, E b){
         if(node == null) return null;
         else if(node.element.compareTo(b) <= 0 && node.element.compareTo(a) >= 0){
