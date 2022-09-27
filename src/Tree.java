@@ -21,6 +21,12 @@ class UnderflowException extends RuntimeException {
 
 public class Tree<E extends Comparable<? super E>> {
 
+
+    /**
+     * Class used in deepestNode() to pass information with each recursive call
+     * depth: the depth the node was found
+     * node: a BinaryNode to pass back
+     */
     class NodeInfo {
         BinaryNode<E> node;
         int depth;
@@ -33,10 +39,20 @@ public class Tree<E extends Comparable<? super E>> {
             this.node = node;
         }
     }
+
+    /**
+     * Class used in countBST() to pass information with each recursive call
+     * trees: how many BST trees exist within the tree
+     * stillOrdered: if all below nodes follow with an ordered BST
+     */
     class SubBSTInfo {
         int trees;
         boolean stillOrdered;
 
+        public SubBSTInfo(int trees, boolean stillOrdered){
+            this.trees = trees;
+            this.stillOrdered = stillOrdered;
+        }
 
     }
 
@@ -118,6 +134,13 @@ public class Tree<E extends Comparable<? super E>> {
         else
             return treeName+"\n" + toString(root,"");
     }
+
+    /**
+     * 
+     * @param t
+     * @param indent
+     * @return
+     */
 
     private String toString(BinaryNode<E> t, String indent) {
         if (t == null) return "";
@@ -242,10 +265,29 @@ public class Tree<E extends Comparable<? super E>> {
      * @return Count of embedded binary search trees
      */
     public Integer countBST() {
-        if (root == null) return 0;
-        return -1;
+        return countBST(root).trees;
     }
 
+    private SubBSTInfo countBST(BinaryNode<E> node){
+        SubBSTInfo treeInfo = new SubBSTInfo(0, true);
+        if(node == null) return treeInfo;
+        SubBSTInfo rTreeInfo = countBST(node.right);
+        SubBSTInfo lTreeInfo = countBST(node.left);
+        boolean childrenCorrect = true;
+        if(node.left != null){  // check if the immediate left child is correct
+            childrenCorrect = (node.element.compareTo(node.left.element) > 0);
+        }
+        if(node.right != null){ // check if the immediate right child is correct
+            childrenCorrect = (childrenCorrect && (node.element.compareTo(node.right.element) < 0));
+        }
+        // if the left subtree, right subtree, and immediate children are correct, true
+        treeInfo.stillOrdered = (rTreeInfo.stillOrdered && lTreeInfo.stillOrdered && childrenCorrect);
+        treeInfo.trees = rTreeInfo.trees + lTreeInfo.trees;
+        if(treeInfo.stillOrdered){
+            treeInfo.trees++;
+        }
+    return treeInfo;
+    }
 
 
     /**
@@ -316,6 +358,14 @@ public class Tree<E extends Comparable<? super E>> {
         prune((BinaryNode<Integer>) root, sum, 0);
     }
 
+
+    /** Internal method to remove all paths from a tree that sum ot less than the given value
+     * this method runs at
+     * @param node: the current node being inspected
+     * @param TARGET_SUM: the sum that the nodes must equate to
+     * @param pathSum: the sum of from the path from the leaf to the current node
+     * @return the sum of the path
+     */
     private int prune(BinaryNode<Integer> node, Integer TARGET_SUM, int pathSum){
         if(node == null) return pathSum;
         int left = prune(node.left, TARGET_SUM, pathSum + node.element);
@@ -354,6 +404,14 @@ public class Tree<E extends Comparable<? super E>> {
         if (ancestor == null) return "none";
         else return ancestor.toString();
     }
+
+    /** Internal method to find the least common ancestor of two nodes
+     * this method runs at
+     * @param node: the node being inspected
+     * @param a: the first node
+     * @param b: the second node
+     * @return the least common ancestor of a and b
+     */
 
     private BinaryNode<E> lca(BinaryNode<E> node, E a, E b){
         BinaryNode<E> ancestor = null;
@@ -396,6 +454,15 @@ public class Tree<E extends Comparable<? super E>> {
         sorted = balanceTree(node.right, sorted);
         return sorted;
     }
+
+    /**
+     * second internal method that creates a balanced bst
+     * by inserting the nodes in a specific order
+     * this runs at
+     * @param sorted ArrayList<E> containing keys
+     * @param start the beginning index of the slice of sorted
+     * @param end the end index of the slice of sorted
+     */
 
     private void balanceTree(ArrayList<E> sorted, int start, int end){
         if(start >= end){

@@ -93,14 +93,14 @@ public class TreeTester {
         treeFive.changeName("treeFive after keeping only nodes between 3  and 69");
         System.out.println(treeFive.toString());
 
-//        // Problem 10
-//        treeTwo = new Tree<Integer>(list2, "TreeTwo:", false);
-//        System.out.println(treeTwo.toString());
-//        System.out.println("treeTwo Contains BST: " + treeTwo.countBST());
-//
-//        treeFour = new Tree<Integer>(list4, "treeFour", false);
-//        System.out.println(treeFour.toString());
-//        System.out.println("treeFour Contains BST: " + treeFour.countBST());
+        // Problem 10
+        treeTwo = new Tree<Integer>(list2, "TreeTwo:", false);
+        System.out.println(treeTwo.toString());
+        System.out.println("treeTwo Contains BST: " + treeTwo.countBST());
+
+        treeFour = new Tree<Integer>(list4, "treeFour", false);
+        System.out.println(treeFour.toString());
+        System.out.println("treeFour Contains BST: " + treeFour.countBST());
 //
 //        //Bonus
 //
